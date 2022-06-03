@@ -20,13 +20,17 @@ export default function Greet(props: PageProps) {
       <SiteHead title="Home" stylesheets={["/css/main.css"]} />
       <div class={tw`h-screen w-screen`}>
         <BackButton />
-        <div class={tw`flex justify-center items-center`}>
-          <ProgressCircle />
-          <CountDown />
-        </div>
-        <div class={tw`fixed left-2/3 top-1/3 mt-24 w-32`}>
-          <p class={tw`text-xl`}>Next Interval:</p>
-          <p>5s</p>
+        <div class={tw``}>
+          <div class={tw`flex justify-center items-center`}>
+            <ProgressCircle />
+            <CountDown />
+          </div>
+          <div
+            class={tw`fixed left-1/2 top-2/3 mt-24 w-32 lg:left-2/3 lg:top-1/3`}
+          >
+            <p class={tw`text-xl`}>Next Interval:</p>
+            <p>5s</p>
+          </div>
         </div>
         <div class={tw`flex object-right-bottom fixed right-0 bottom-0`}>
           <button class={tw`bg-black text-white w-64 h-16 m-3`}>Pause</button>
