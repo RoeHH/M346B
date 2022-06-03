@@ -11,6 +11,7 @@ export const theme = {
     white: colors.white,
     yellow: colors.yellow,
     indigo: colors.indigo,
+    red: colors.red,
   },
 };
 if (IS_BROWSER) {

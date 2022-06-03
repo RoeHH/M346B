@@ -6,7 +6,6 @@ import SiteHead from "-/components/Head.tsx";
 import TimerCard from "-/components/TimerCard.tsx";
 
 
-import TimerDataController from "-/data/TimerDataController.ts";
 import Timer from "-/data/Timer.ts";
 
 const Timers: Timer[] =  [
@@ -109,17 +108,12 @@ intervale: [
 ]
 
 export default function Home() {
-  const inter = [1,3,324,234,5345,12];
-  const TimerCards: any[] = []; 
-  for (const t of Timers) {
-    TimerCards.push(<TimerCard name={t.name} intervale={t.intervale} />)
-  }
-  return (
+    return (
     <>
       <SiteHead title="Home" />
       <img src="favicon.ico" class={tw`my-10 mx-auto h-40 w-40`}/>
-      <div class={tw`mx-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6`}>
-        {TimerCards}
+      <div class={tw`mx-10 md:mx-20 lg:mx-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6`}>
+        {Timers.map(t => <TimerCard name={t.name} intervale={t.intervale} />)}
       </div>
     </>
   );
