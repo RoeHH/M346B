@@ -16,9 +16,7 @@ const manifest = {
     "./routes/timer/edit/[name].tsx": $3,
     "./routes/timer/new.tsx": $4,
   },
-  islands: {
-    
-  },
+  islands: {},
   baseUrl: import.meta.url,
 };
 
