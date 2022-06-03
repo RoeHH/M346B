@@ -17,7 +17,9 @@ export default function CountDown() {
 
   return (
     <div>
-      <p class={tw`text-2xl mr-12 mb-12`}>{seconds + "s"}</p>
+      <p class={tw`text-2xl`} id="countdown">
+        {seconds + "s"}
+      </p>
     </div>
   );
 }
