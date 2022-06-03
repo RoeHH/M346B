@@ -2,7 +2,6 @@
 /** @jsxFrag Fragment */
 
 import { h, tw, Fragment } from "../client_deps.ts";
-import Counter from "-/islands/Counter.tsx";
 import SiteHead from "-/components/Head.tsx";
 import TimerCard from "-/components/TimerCard.tsx";
 
