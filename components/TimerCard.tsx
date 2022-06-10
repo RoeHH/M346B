@@ -2,7 +2,7 @@
 /** @jsxFrag Fragment */
 
 import { h, tw, Head, Fragment } from "-/client_deps.ts";
-import Timer from "-/data/Timer.ts"
+import Timer from "-/data/interfaces/Timer.ts"
 
 export default function TimerCard(props: Timer) {
     const editLink = "/timer/edit/" + props.name

@@ -5,7 +5,7 @@ import { h, tw, Fragment } from "../client_deps.ts";
 import SiteHead from "-/components/Head.tsx";
 import TimerCard from "-/components/TimerCard.tsx";
 
-import Timer from "-/data/Timer.ts";
+import Timer from "-/data/interfaces/Timer.ts";
 
 const Timers: Timer[] = [
   {
