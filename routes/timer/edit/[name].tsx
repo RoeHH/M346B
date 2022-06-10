@@ -48,7 +48,12 @@ export default function Greet(props: PageProps) {
             placeholder="Timer iterationen"
             className={tw`h-8 w-48 p-3 m-3`}
           ></input>
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            className={tw`h-10 bg-black text-white rounded`}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </>
