@@ -6,7 +6,7 @@ import SiteHead from "-/components/Head.tsx";
 import TimerCard from "-/components/TimerCard.tsx";
 
 import Timer from "-/data/interfaces/ITimer.ts";
-import { TimerDataController } from "-/data/timerDataController.ts";
+import { TimerDataController } from "-/data/TimerDataController.ts";
 
 const Timers: Timer[] = TimerDataController.getAllTimers();
 
