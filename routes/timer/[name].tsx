@@ -5,8 +5,6 @@ import {
   h,
   PageProps,
   tw,
-  useState,
-  useEffect,
   Fragment,
 } from "-/client_deps.ts";
 import BackButton from "-/components/backButton.tsx";
