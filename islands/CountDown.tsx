@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h, useMemo, tw, useState, useEffect } from "-/client_deps.ts";
+import { h, useMemo, tw, useState, useEffect } from "../client_deps.ts";
 
 export default function CountDown() {
   const [seconds, setSeconds] = useState(30);

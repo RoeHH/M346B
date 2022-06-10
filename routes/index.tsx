@@ -5,74 +5,10 @@ import { h, tw, Fragment } from "../client_deps.ts";
 import SiteHead from "-/components/Head.tsx";
 import TimerCard from "-/components/TimerCard.tsx";
 
-import Timer from "-/data/interfaces/Timer.ts";
+import Timer from "-/data/interfaces/ITimer.ts";
+import { TimerDataController } from "-/data/timerDataController.ts";
 
-const Timers: Timer[] = [
-  {
-    name: "Abs Workout",
-    intervale: [1, 1, 34, 2314, 3],
-  },
-  {
-    name: "Abs Workout2",
-    intervale: [1, 1, 34, 2314, 344],
-  },
-  {
-    name: "Abs Workout3",
-    intervale: [1, 31, 34, 2314, 3, 99999999999999999999, 1],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-  {
-    name: "Abs Workout4",
-    intervale: [1, 1, 32344, 2314, 3],
-  },
-];
+const Timers: Timer[] = TimerDataController.getAllTimers();
 
 export default function Home() {
     return (
