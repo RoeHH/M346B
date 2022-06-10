@@ -8,9 +8,8 @@ import TimerCard from "-/components/TimerCard.tsx";
 import Timer from "-/data/interfaces/ITimer.ts";
 import { TimerDataController } from "-/data/TimerDataController.ts";
 
-const Timers: Timer[] = TimerDataController.getAllTimers();
-
 export default function Home() {
+  const Timers: Timer[] = TimerDataController.getAllTimers();
   return (
     <>
       <SiteHead title="Home" stylesheets={[]} />

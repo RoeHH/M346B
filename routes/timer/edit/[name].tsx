@@ -4,6 +4,7 @@
 import { h, PageProps, tw, Fragment } from "-/client_deps.ts";
 import { Handlers } from "-/server_deps.ts";
 import SiteHead from "-/components/Head.tsx";
+import TimerForm from "-/components/TimerForm.tsx";
 import { TimerDataController } from "-/data/TimerDataController.ts";
 import Timer from "-/data/interfaces/ITimer.ts";
 
@@ -18,38 +19,31 @@ export const handler: Handlers<Data> = {
     const url = new URL(req.url);
     const queryName = url.searchParams.get("name") || "";
     const queryInterval = url.searchParams.get("interval") || "";
-    const interval = queryInterval.split(",").map(function (item) {
-      return Number(item.trim());
-    });
+    const interval = queryInterval.split(",").map(item => parseInt(item.trim())).filter(i => i > 0);
     const editedTimer: Timer = {
-      name: queryName,
+      name: decodeURI(queryName),
       intervale: interval,
     };
-    TimerDataController.editTimer(ctx.params.name, editedTimer);
-    return ctx.render({ queryName, queryInterval, success: true });
+    console.log(editedTimer);
+    if(queryName !== ""){
+      TimerDataController.editTimer(decodeURI(ctx.params.name), editedTimer);     
+      return Response.redirect("http://" + new URL(req.url).host);
+    }else{
+      return ctx.render({ queryName, queryInterval, success: true });
+    }
   },
 };
 
-export default function Greet(props: PageProps) {
+export default function Edit(props: PageProps) {
+  console.log(decodeURI(props.params.name));
+  
+  const Timer = TimerDataController.getTimerByName(decodeURI(props.params.name))
   return (
     <>
       <SiteHead title="Edit" stylesheets={["/css/main.css"]} />
       <div className="body">
         <h1 className={tw`text-2xl`}>Edit</h1>
-        <form className={tw`flex flex-col`}>
-          <input
-            type="text"
-            placeholder="Timer 1"
-            className={tw`h-8 w-48 p-3 m-3`}
-            name="name"
-          ></input>
-          <input
-            type="text"
-            placeholder="Timer iterationen"
-            className={tw`h-8 w-48 p-3 m-3`}
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
+        <TimerForm Timer={Timer} />
       </div>
     </>
   );
