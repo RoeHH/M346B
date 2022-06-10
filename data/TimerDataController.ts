@@ -5,11 +5,8 @@ export const TimerDataController: ITimerDataController =
   class TimerDataController {
     private constructor() {}
 
-    static getTimerByName(name: string): Timer {
-      return {
-        name: "Not implementestd adfkljasdlfja",
-        intervale: [1, 1, 34, 2314, 3],
-      };
+    static getTimerByName(name: string): Timer | undefined {
+      return this.getAllTimers().filter((timer) => timer.name === name).at(0);
     }
 
     static setTimer(timer: Timer): Timer {
@@ -27,71 +24,6 @@ export const TimerDataController: ITimerDataController =
     }
 
     static getAllTimers(): Timer[] {
-      return [
-        {
-          name: "Abs Workout",
-          intervale: [1, 1, 34, 2314, 3],
-        },
-        {
-          name: "Abs Workout2",
-          intervale: [1, 1, 34, 2314, 344],
-        },
-        {
-          name: "Abs Workout3",
-          intervale: [1, 31, 34, 2314, 3, 99999999999999999999, 1],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-        {
-          name: "Abs Workout4",
-          intervale: [1, 1, 32344, 2314, 3],
-        },
-      ];
+      return JSON.parse(Deno.readTextFileSync("./timer-data.json"));
     }
   };
