@@ -17,11 +17,12 @@ export const TimerDataController: ITimerDataController =
         }]`;
       }
       timers.push(newTimer);
-      Deno.writeTextFileSync("./timer-data.json", JSON.stringify(timers)); //Speichert den neuen eintrag
+      Deno.writeTextFileSync("./timer-data.json", JSON.stringify(timers)); //Speichert den neuen Eintrag
       return newTimer;
     }
 
     static editTimer(name: string, editedTimer: Timer): Timer {
+      if(editedTimer.name === "") { return editedTimer; }
       const timers = this.getAllTimers();
       if (editedTimer.name === name) {
         Deno.writeTextFileSync(

@@ -16,6 +16,7 @@ export default function TimerForm(props: TimerFormProps | undefined) {
         placeholder="Timer 1"
         className={tw`h-8 w-48 p-3 m-3`}
         name="name"
+        pattern="^.+$"
         value={props?.Timer?.name}
       >
       </input>
@@ -24,6 +25,7 @@ export default function TimerForm(props: TimerFormProps | undefined) {
         placeholder="Timer iterationen"
         className={tw`h-8 w-48 p-3 m-3`}
         name="interval"
+        pattern="^[0-9\,]+$"
         value={props?.Timer?.intervale.toLocaleString()}
       >
       </input>

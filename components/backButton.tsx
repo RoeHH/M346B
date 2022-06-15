@@ -5,8 +5,8 @@ import { h, tw } from "-/client_deps.ts";
 
 export default function BackButton() {
   return (
-    <div class={tw`h-40 w-40`}>
-      <a href="../" class={tw`fixed left-0 top-0 h-16 w-16 mt-6`}>
+    <div class={tw`h-0 w-0`}>
+      <a href="/" class={tw`fixed left-0 top-0 h-16 w-16 mt-6`}>
         <svg
           version="1.1"
           id="Capa_1"
