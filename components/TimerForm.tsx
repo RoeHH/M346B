@@ -13,7 +13,7 @@ export default function TimerForm(props: TimerFormProps | undefined) {
     <form className={tw`flex flex-col`}>
       <input
         type="text"
-        placeholder="Timer 1"
+        placeholder="Timer Name"
         className={tw`h-8 w-48 p-3 m-3`}
         name="name"
         pattern="^.+$"
@@ -22,11 +22,11 @@ export default function TimerForm(props: TimerFormProps | undefined) {
       </input>
       <input
         type="text"
-        placeholder="Timer iterationen"
+        placeholder="Timer iterationen [1,2,3]"
         className={tw`h-8 w-48 p-3 m-3`}
         name="interval"
         pattern="^[0-9\,]+$"
-        value={props?.Timer?.intervale.toLocaleString()}
+        value={props?.Timer?.intervale.toString()}
       >
       </input>
       <button type="submit">Submit</button>

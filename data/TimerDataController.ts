@@ -22,7 +22,7 @@ export const TimerDataController: ITimerDataController =
     }
 
     static editTimer(name: string, editedTimer: Timer): Timer {
-      if(editedTimer.name === "") { return editedTimer; }
+      if (editedTimer.name === "") return editedTimer;
       const timers = this.getAllTimers();
       if (editedTimer.name === name) {
         Deno.writeTextFileSync(
@@ -30,15 +30,20 @@ export const TimerDataController: ITimerDataController =
           JSON.stringify(timers.map((t) => t.name === name ? editedTimer : t)),
         );
       } else {
-        if (timers.filter((t) => t.name === editedTimer.name).length > 0) { //Fügt eine Zahl an den Namen an falls dieser schon vorhanden ist.
+        //Fügt eine Zahl an den Namen an falls dieser schon vorhanden ist.
+        if (
+          timers.filter((t) => t.name === editedTimer.name)
+            .length > 0
+        ) {
           editedTimer.name = `${editedTimer.name}[${
             timers.filter((t) => t.name === editedTimer.name).length
           }]`;
         }
-        Deno.writeTextFileSync(
+
+        Deno.writeTextFileSync( //Speichert den bearbeiteten Eintrag
           "./timer-data.json",
           JSON.stringify(timers.map((t) => t.name === name ? editedTimer : t)),
-        ); //Speichert den bearbeiteten Eintrag
+        );
       }
       return editedTimer;
     }
