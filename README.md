@@ -25,3 +25,7 @@ Das ViewModel ist die Verbindung zwischen Model und View, es enthält auch sämt
 ### View
 
 Die View ist nur dafür zuständig, Daten anzuzeigen. Sie befindet sich in jedem .tsx fille, innerhalb der ``export default function``. Das rendering wir von übernommen [preact](https://preactjs.com/).
+
+## Ausführen
+
+Einfach die exe starten :)
