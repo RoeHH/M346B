@@ -3,7 +3,6 @@
 
 import { h, PageProps, tw, Fragment } from "-/client_deps.ts";
 import BackButton from "-/components/backButton.tsx";
-import ProgressCircle from "-/components/progressCircle.tsx";
 import CountDown from "-/islands/CountDown.tsx";
 import SiteHead from "-/components/Head.tsx";
 import { TimerDataController } from "-/data/TimerDataController.ts";
@@ -29,9 +28,6 @@ export default function Greet(props: PageProps) {
       <div class={tw`h-screen w-screen`}>
         <BackButton />
         <div class={tw``}>
-          <div id="circle">
-            <ProgressCircle />
-          </div>
           <div id="countdown">
             <CountDown time={props.data.timer?.intervale || []} />
           </div>
