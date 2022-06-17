@@ -7,6 +7,12 @@
     text-align: left;
 }
 
+#circle {
+   position: absolute;
+   top: 20%;
+   left: 37%;
+}
+
 #countdown {
     position: absolute;
     top: 42%;

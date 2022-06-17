@@ -1,16 +1,26 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 
-import {
-  h,
-  PageProps,
-  tw,
-  Fragment,
-} from "-/client_deps.ts";
+import { h, PageProps, tw, Fragment } from "-/client_deps.ts";
 import BackButton from "-/components/backButton.tsx";
 import ProgressCircle from "-/components/progressCircle.tsx";
 import CountDown from "-/islands/CountDown.tsx";
 import SiteHead from "-/components/Head.tsx";
+import { TimerDataController } from "-/data/TimerDataController.ts";
+import { Handlers } from "-/server_deps.ts";
+
+export const handler: Handlers = {
+  GET(req, ctx) {
+    const timer = TimerDataController.getTimerByName(
+      decodeURI(ctx.params.name)
+    );
+    if (timer) {
+      return ctx.render({ timer });
+    } else {
+      return Response.redirect(new URL(req.url).origin);
+    }
+  },
+};
 
 export default function Greet(props: PageProps) {
   return (
@@ -19,20 +29,12 @@ export default function Greet(props: PageProps) {
       <div class={tw`h-screen w-screen`}>
         <BackButton />
         <div class={tw``}>
-          <div class={tw`flex justify-center items-center`}>
+          <div id="circle">
             <ProgressCircle />
-            <CountDown />
           </div>
-          <div
-            class={tw`fixed left-1/2 top-2/3 mt-24 w-32 lg:left-2/3 lg:top-1/3`}
-          >
-            <p class={tw`text-xl`}>Next Interval:</p>
-            <p>5s</p>
+          <div id="countdown">
+            <CountDown time={props.data.timer?.intervale || []} />
           </div>
-        </div>
-        <div class={tw`flex object-right-bottom fixed right-0 bottom-0`}>
-          <button class={tw`bg-black text-white w-64 h-16 m-3`}>Pause</button>
-          <button class={tw`bg-black text-white w-64 h-16 m-3`}>Skip</button>
         </div>
       </div>
     </>
