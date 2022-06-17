@@ -29,3 +29,4 @@ Die View ist nur dafür zuständig, Daten anzuzeigen. Sie befindet sich in jedem
 ## Ausführen
 
 Einfach die exe starten :)
+https://github.com/RoeHH/M346B/releases/download/v1/M346B.exe
