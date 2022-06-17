@@ -5,7 +5,7 @@ import { h, tw } from "-/client_deps.ts";
 
 export default function progressCircle() {
   return (
-    <div class={tw`flex justify-center items-center`}>
+    <div class={tw``}>
       <svg width="400" height="400">
         <g transform="rotate(-90 100 100)">
           <circle
