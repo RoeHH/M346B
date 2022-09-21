@@ -9,8 +9,8 @@ import { TimerDataController } from "-/data/TimerDataController.ts";
 import { Handlers } from "-/server_deps.ts";
 
 export const handler: Handlers = {
-  GET(req, ctx) {
-    const timer = TimerDataController.getTimerByName(
+  async GET(req, ctx) {
+    const timer = await TimerDataController.getTimerByName(
       decodeURI(ctx.params.name)
     );
     if (timer) {

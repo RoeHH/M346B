@@ -8,11 +8,12 @@ export interface IFromData {
 }
 
 export const FormHandler: Handlers<IFromData> = {
-  GET(req, ctx) {
+  async GET(req, ctx) {
+    const Timer = await TimerDataController.getTimerByName(decodeURI(ctx.params.name))
+
     const url = new URL(req.url);
     const queryName = url.searchParams.get("name") || "";
     const queryInterval = url.searchParams.get("interval") || "";
-
     if (queryName !== "" && /^[0-9\,]+$/.test(queryInterval)) { //Ist das Format invalid soll die seite neu angezeigt werden
       const interval = queryInterval.split(",").map((item) =>
         parseInt(item.trim())
@@ -30,7 +31,7 @@ export const FormHandler: Handlers<IFromData> = {
       }
       return Response.redirect(url.origin); //Redirect auf die Startseite
     } else {
-      return ctx.render({ queryName, queryInterval }); //Neu renderen bei Fehler
+      return ctx.render({ queryName, queryInterval, Timer }); //Neu renderen bei Fehler
     }
   },
 };

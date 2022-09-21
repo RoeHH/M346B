@@ -11,14 +11,13 @@ import { FormHandler } from "-/handlers/FormHandler.ts";
 export const handler = FormHandler
 
 export default function Edit(props: PageProps) { 
-  const Timer = TimerDataController.getTimerByName(decodeURI(props.params.name))
   return (
     <>
       <SiteHead title="Edit" stylesheets={["/css/main.css"]} />
       <div className="body">
         <BackButton />
         <h1 className={tw`text-2xl`}>Edit</h1>
-        <TimerForm Timer={Timer} />
+        <TimerForm Timer={props.data.Timer} />
       </div>
     </>
   );
