@@ -1,4 +1,4 @@
-export * from "https://raw.githubusercontent.com/lucacasonato/fresh/main/server.ts";
+export * from "https://raw.githubusercontent.com/denoland/fresh/dd2548a322293e6029bc298f96767a7c03bb1d7e/server.ts";
 
 export { virtualSheet } from "https://esm.sh/twind@0.16.16/sheets";
 
