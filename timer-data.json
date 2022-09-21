@@ -1,6 +1,1 @@
-[
-  { "name": "I love cheatcodes", "intervale": [6, 2, 3] },
-  { "name": "Abs Workout3", "intervale": [1, 31, 34, 2, 3, 99] },
-  { "name": "Abs Workout4", "intervale": [1, 1, 32344, 2314, 3] },
-  { "name": "What is a Bannana", "intervale": [1] }
-]
+[{"name":"I love cheatcodes","intervale":[6,2,3]},{"name":"Abs Workout3","intervale":[1,31,34,2,3,99]},{"name":"Abs Workout4","intervale":[1,1,32344,2314,3]},{"name":"What is a Bannana","intervale":[1]},{"name":"luis","intervale":[6,2,8,9,9,8]}]
